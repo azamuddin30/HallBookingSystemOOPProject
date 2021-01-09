@@ -10,8 +10,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -36,6 +41,17 @@ public class HallBookingJavaFX extends Application {
         window.setTitle(customerInfo);
 
         // Scene 1 nodes
+        //Welcome
+        Label welcomeLabel = new Label("WELCOME TO HALL BOOKING SYSTEM");
+        welcomeLabel.setFont(new Font("Verdana", 12));
+        welcomeLabel.setTextFill(Color.web("#0076a3"));
+
+        //detaillabel
+        Label detailLabel = new Label("Please fill in your details:");
+        detailLabel.setFont(new Font("Verdana", 11));
+        detailLabel.setTextFill(Color.web("#0076a3"));
+
+
         // User Name
         Label nameLabel = new Label("Name:");
         TextField nameInput = new TextField();
@@ -58,8 +74,8 @@ public class HallBookingJavaFX extends Application {
         // create GridPane
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(30));
-        grid.setVgap(15);
-        grid.setHgap(10);
+        grid.setVgap(20);
+        grid.setHgap(20);
         GridPane.setHalignment(btnScene1, HPos.CENTER);
         grid.setAlignment(Pos.CENTER);
 
@@ -67,17 +83,19 @@ public class HallBookingJavaFX extends Application {
         btnScene1.setOnAction(e -> createCustomerObject(grid,nameInput,emailInput,phoneInput));
 
         // 0th Column
-        GridPane.setConstraints(nameLabel,0,1);
-        GridPane.setConstraints(emailLabel,0,2);
-        GridPane.setConstraints(phoneLabel,0,3);
+        GridPane.setConstraints(nameLabel,0,3);
+        GridPane.setConstraints(emailLabel,0,4);
+        GridPane.setConstraints(phoneLabel,0,5);
         GridPane.setConstraints(btnScene1,0,7,2,1);
 
         // 1st Column
-        GridPane.setConstraints(nameInput,1,1);
-        GridPane.setConstraints(emailInput,1,2);
-        GridPane.setConstraints(phoneInput,1,3);
+        GridPane.setConstraints(welcomeLabel,1,0);
+        GridPane.setConstraints(detailLabel,1,2);
+        GridPane.setConstraints(nameInput,1,3);
+        GridPane.setConstraints(emailInput,1,4);
+        GridPane.setConstraints(phoneInput,1,5);
 
-        grid.getChildren().addAll(nameLabel,emailLabel,phoneLabel,btnScene1,nameInput,emailInput,phoneInput);
+        grid.getChildren().addAll(detailLabel,welcomeLabel,nameLabel,emailLabel,phoneLabel,btnScene1,nameInput,emailInput,phoneInput);
 
         // create Scene 1
         scene1 = new Scene(grid,500,350);
@@ -85,6 +103,10 @@ public class HallBookingJavaFX extends Application {
 
 
         // Scene 2 Hall info and booking infos
+        // Colorful Label
+        Label bookLabel = new Label("PLEASE COMPLETE YOUR BOOKING DETAILS:");
+        bookLabel.setFont(new Font("Verdana", 16));
+        bookLabel.setTextFill(Color.web("#0076a3"));
         // Label Radio
         Label hallTypeLabel = new Label("Hall Type");
         // Use Radio to select hall type
@@ -135,6 +157,7 @@ public class HallBookingJavaFX extends Application {
         grid2.setHgap(10);
 
         // 0th Column
+        GridPane.setConstraints(bookLabel,0,0);
         GridPane.setConstraints(hallTypeLabel,0,1);
         GridPane.setConstraints(hallNameLabel,0,2);
         GridPane.setConstraints(dateBookingLabel,0,3);
@@ -159,7 +182,7 @@ public class HallBookingJavaFX extends Application {
         displayTableButton.setOnAction(e -> ConfirmBox.displayTableBooking(getListAllBooking()));
 
         // insert all node into GridPane
-        grid2.getChildren().addAll(hallTypeLabel,hallNameLabel,dateBookingLabel,startHourLabel,endHourLabel
+        grid2.getChildren().addAll(bookLabel,hallTypeLabel,hallNameLabel,dateBookingLabel,startHourLabel,endHourLabel
         ,hallHbox,hallNameInput,dateInput,startHourInput,endHourInput,buttonHBox);
 
         // init Scene 2
