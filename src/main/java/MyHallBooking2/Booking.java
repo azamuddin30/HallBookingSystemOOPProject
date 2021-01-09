@@ -96,13 +96,9 @@ public class Booking implements Comparable<Booking> {
         return endHour;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+    public Customer getCustomer() { return customer; }
 
-    public Hall getHall() {
-        return hall;
-    }
+    public Hall getHall() { return hall; }
 
     public String getHallName() {
         return hall.getHallName();
@@ -166,6 +162,8 @@ public class Booking implements Comparable<Booking> {
                 } else if(this.getTotalHour() == o.getTotalHour()) {
                     if(this.getHallName().compareTo(o.getHallName())==1){
                         result = 1;
+                    } else if (this.getHallName().compareTo(o.getHallName())==0) {
+                        result = 0;
                     } else {
                         result = -1;
                     }
