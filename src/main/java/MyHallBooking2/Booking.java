@@ -151,31 +151,39 @@ public class Booking implements Comparable<Booking> {
     @Override
     public int compareTo(Booking o) {
         int result ;
-        if(this.dateBooking.compareTo(o.dateBooking) == 1) {
+        if(this.dateBooking.compareTo(o.getDateBooking()) == 1) {
             result = 1;
-        } else if (this.dateBooking.compareTo(o.dateBooking) == 0) {
-            if (this.startHour.compareTo(o.startHour)== -1) {
+        }
+        else if (this.dateBooking.compareTo(o.getDateBooking()) == 0) {
+            if (this.startHour.compareTo(o.getStartHour())== -1) {
                 result = 1;
-            } else if (this.startHour.compareTo(o.startHour)== 0) {
-                if (this.getTotalHour() < o.getTotalHour()) {
+            }
+            else if (this.startHour.compareTo(o.getStartHour())== 0) {
+                if (this.endHour.compareTo(o.getEndHour())== -1) {
                     result = 1;
-                } else if(this.getTotalHour() == o.getTotalHour()) {
+                }
+                else if(this.endHour.compareTo(o.getEndHour())== 0) {
                     if(this.getHallName().compareTo(o.getHallName())==1){
                         result = 1;
-                    } else if (this.getHallName().compareTo(o.getHallName())==0) {
+                    }
+                    else if (this.getHallName().compareTo(o.getHallName())==0) {
                         result = 0;
-                    } else {
+                    }
+                    else {
                         result = -1;
                     }
 
-                } else {
+                }
+                else {
                     result = -1;
                 }
 
-            } else {
+            }
+            else {
                 result = -1;
             }
-        } else {
+        }
+        else {
             result = -1;
         }
         return result;
