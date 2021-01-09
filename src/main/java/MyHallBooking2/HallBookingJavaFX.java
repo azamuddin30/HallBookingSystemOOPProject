@@ -252,11 +252,11 @@ public class HallBookingJavaFX extends Application {
         for(Booking i: bookingList) {
             System.out.println("Position:" + count++);
             System.out.println("Size ArrayList : "+bookingList.size());
-            System.out.println("Name: "+ i.getCustomer().getName());
-            System.out.println("Email: "+i.getCustomer().getEmail());
-            System.out.println("Phone Number: "+i.getCustomer().getPhoneNumber());
-            System.out.println("Hall Name: "+ i.getHall().getHallName());
-            System.out.println("Hall Type: "+i.getHall().getHallType());
+            System.out.println("Name: "+ i.getCustomerName());
+            System.out.println("Email: "+i.getCustomerEmail());
+            System.out.println("Phone Number: "+i.getCustomerPhoneNumber());
+            System.out.println("Hall Name: "+ i.getHallName());
+            System.out.println("Hall Type: "+i.getHallType());
             System.out.println("Start Hour: "+i.getStartHour());
             System.out.println("End Hour: "+i.getEndHour());
             System.out.println("Date : "+i.getDateBooking());
