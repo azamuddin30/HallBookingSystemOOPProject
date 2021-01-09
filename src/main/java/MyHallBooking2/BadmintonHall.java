@@ -7,10 +7,6 @@ public class BadmintonHall extends Hall{
     public BadmintonHall() {
         super("Badminton Hall","Badminton");
     }
-
-
-
-    //TODO add 40% rate per day
     @Override
     public double getDeposit() {
         return 0.4 * Hall.MAX_DEPOSIT;

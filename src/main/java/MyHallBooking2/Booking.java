@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
 
-public class Booking {
+public class Booking implements Comparable<Booking> {
     private Customer customer;
     private Hall hall;
     private LocalTime startHour;
@@ -152,5 +152,35 @@ public class Booking {
     }
 
 
+    @Override
+    public int compareTo(Booking o) {
+        int result ;
+        if(this.dateBooking.compareTo(o.dateBooking) == 1) {
+            result = 1;
+        } else if (this.dateBooking.compareTo(o.dateBooking) == 0) {
+            if (this.startHour.compareTo(o.startHour)== -1) {
+                result = 1;
+            } else if (this.startHour.compareTo(o.startHour)== 0) {
+                if (this.getTotalHour() < o.getTotalHour()) {
+                    result = 1;
+                } else if(this.getTotalHour() == o.getTotalHour()) {
+                    if(this.getHallName().compareTo(o.getHallName())==1){
+                        result = 1;
+                    } else {
+                        result = -1;
+                    }
+
+                } else {
+                    result = -1;
+                }
+
+            } else {
+                result = -1;
+            }
+        } else {
+            result = -1;
+        }
+        return result;
+    }
 
 }

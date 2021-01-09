@@ -16,6 +16,7 @@ import javafx.stage.Window;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HallBookingJavaFX extends Application {
     Stage window;
@@ -221,7 +222,7 @@ public class HallBookingJavaFX extends Application {
         if(timeEnd.isBefore(timeStart)) {
             timeEnd = timeStart.plusHours(1);
             // if end hour earlier than start set end hour = start + 1hr
-            //TODO add popup window tellin user this.
+
             ConfirmBox.display("Time Conflict!", "new time end :" , timeEnd);
         }
         //System.out.println(timeEnd);//testing
@@ -308,7 +309,7 @@ public class HallBookingJavaFX extends Application {
     public ObservableList<Booking> getListAllBooking() {
 
         ObservableList<Booking> list = FXCollections.observableArrayList();
-
+        Collections.sort(bookingList);
         for (Booking i : bookingList) {
             list.add(i);
         }
