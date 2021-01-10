@@ -258,7 +258,7 @@ public class HallBookingJavaFX extends Application  {
         } catch (NullPointerException ex) {
 
             ConfirmBox.display("Notification","Alert:","Booking Object is Null","Please check","Code.");
-            window.close();
+            window.showAndWait();
         }
 
 
