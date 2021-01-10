@@ -20,7 +20,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class HallBookingJavaFX extends Application  {
+public class HallBookingJavaFX extends Application {
     Stage window;
     Scene scene1, scene2;
     Customer tempCustomer;
@@ -175,7 +175,7 @@ public class HallBookingJavaFX extends Application  {
         // Button event
         addButton.setOnAction(e -> {
             createBookingObject(radioGroup, hallNameInput, dateInput, startHourInput, endHourInput);
-            ConfirmBox.display("Info", "Booking is","Added Successfully.","You can add"," more.");
+            ConfirmBox.display("Info", "Booking is", "Added Successfully.", "You can add", " more.");
         });
         resetButton.setOnAction(e -> resetAllData());
         confirmButton.setOnAction(e -> confirmPayment());
@@ -257,8 +257,8 @@ public class HallBookingJavaFX extends Application  {
 
         } catch (NullPointerException ex) {
 
-            ConfirmBox.display("Notification","Alert:","Booking Object is Null","Please check","Code.");
-            window.showAndWait();
+            ConfirmBox.display("Notification", "Alert:", "Booking Object is Null", "Please check", "Code.");
+            window.close();
         }
 
 
