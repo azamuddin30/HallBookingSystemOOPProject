@@ -175,7 +175,7 @@ public class HallBookingJavaFX extends Application {
         // Button event
         addButton.setOnAction(e -> {
             createBookingObject(radioGroup, hallNameInput, dateInput, startHourInput, endHourInput);
-            ConfirmBox.display("Info", "Booking is", "Added Successfully.", "You can add", " more.");
+            ConfirmBox.display("Info", "Booking is", "Added Successfully.", "Hall Booking System ", " By Group A");
         });
         resetButton.setOnAction(e -> resetAllData());
         confirmButton.setOnAction(e -> confirmPayment());
@@ -207,7 +207,8 @@ public class HallBookingJavaFX extends Application {
 
     }
 
-    private void createCustomerObject(GridPane gridPane, TextField nameBox, TextField emailBox, TextField phoneBox) {
+    private void createCustomerObject(GridPane gridPane, TextField nameBox, TextField emailBox, TextField phoneBox)
+    throws NullPointerException {
         String name = nameBox.getText();
         String email = emailBox.getText();
         String phone = phoneBox.getText();
@@ -226,13 +227,18 @@ public class HallBookingJavaFX extends Application {
             return;
         }
 
+        try {
+            tempCustomer = new Customer(name, email, phone);
+        } catch (NullPointerException ex) {
+            ConfirmBox.display("Notification", "Alert ", "Customer Object is Null", "Please check", " Code");
+            window.close();
+        }
 
-        tempCustomer = new Customer(name, email, phone);
         window.setScene(scene2);
-        //System.out.println(tempCustomer);// for testing purpose only.
     }
 
-    private void createBookingObject(ToggleGroup radioGroup, ComboBox<String> combo, DatePicker datePicker, TextField startTime, TextField endTime) throws NullPointerException {
+    private void createBookingObject(ToggleGroup radioGroup, ComboBox<String> combo, DatePicker datePicker,
+                                     TextField startTime, TextField endTime) throws NullPointerException {
         RadioButton selectedRadioButton = (RadioButton) radioGroup.getSelectedToggle();
         String radioHallString = selectedRadioButton.getText();
         String hallName = combo.getValue();
