@@ -1,8 +1,8 @@
 package MyHallBooking2;
 
 public abstract class Hall {
-    private String hallName;
     final static double MAX_DEPOSIT = 100;
+    private String hallName;
     private String hallType;
 
 
@@ -14,7 +14,7 @@ public abstract class Hall {
         hallName = HallName;
     }
 
-    protected  Hall(String HallName, String HallType) {
+    protected Hall(String HallName, String HallType) {
         hallName = HallName;
 
         hallType = HallType;
@@ -25,20 +25,23 @@ public abstract class Hall {
     public String getHallName() {
         return hallName;
     }
-    public String getHallType() {
-        return hallType;
-    }
-
-    // setter
 
     public void setHallName(String hallName) {
         this.hallName = hallName;
     }
+
+    // setter
+
+    public String getHallType() {
+        return hallType;
+    }
+
     public void setHallType(String hallType) {
         this.hallType = hallType;
     }
 
     // useful abstract methods
     public abstract double getDeposit();
+
     public abstract String toString();
 }

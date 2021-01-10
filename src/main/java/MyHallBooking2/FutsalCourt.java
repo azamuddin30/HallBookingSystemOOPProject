@@ -5,7 +5,7 @@ public class FutsalCourt extends Hall {
     final static int HOURLY_RATE = 10;
 
     public FutsalCourt() {
-        super("Futsal Hall","Futsal");
+        super("Futsal Hall", "Futsal");
     }
 
 
@@ -17,7 +17,7 @@ public class FutsalCourt extends Hall {
     @Override
     public String toString() {
         String info = "\nHall Name :" + getHallName() + "\nHall Deposit :" +
-                getDeposit() +"\nHall type : " + getHallType() + "\nTotal Futsal Court Number :" +
+                getDeposit() + "\nHall type : " + getHallType() + "\nTotal Futsal Court Number :" +
                 FUTSAL_COURT_NUMBER;
 
         return info;

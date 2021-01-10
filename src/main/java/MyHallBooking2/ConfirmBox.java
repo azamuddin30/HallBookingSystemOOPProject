@@ -1,20 +1,24 @@
 package MyHallBooking2;
+
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.*;
-import javafx.scene.*;
-import javafx.scene.layout.*;
-import javafx.scene.control.*;
-import javafx.geometry.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class ConfirmBox
-{
+public class ConfirmBox {
     static boolean answer;
-    public static boolean display(String title,String message)
-    {
+
+    public static boolean display(String title, String message) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);//force user to close it down first
         window.setTitle(title);
@@ -37,9 +41,9 @@ public class ConfirmBox
 
 
         VBox layout = new VBox(20);
-        layout.getChildren().addAll(label,yesBtn,noBtn);
+        layout.getChildren().addAll(label, yesBtn, noBtn);
         layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout,250,200);
+        Scene scene = new Scene(layout, 250, 200);
         window.setTitle("Close the Program?");
         window.setScene(scene);
         window.showAndWait();
@@ -47,8 +51,7 @@ public class ConfirmBox
         return answer;
     }
 
-    public static void display(String title,String message,LocalTime time)
-    {
+    public static void display(String title, String message, LocalTime time) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);//force user to close it down first
         window.setTitle(title);
@@ -60,52 +63,52 @@ public class ConfirmBox
 
 
         VBox layout = new VBox(20);
-        layout.getChildren().addAll(label,label2,btnClose);
+        layout.getChildren().addAll(label, label2, btnClose);
         layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout,250,200);
+        Scene scene = new Scene(layout, 250, 200);
         window.setScene(scene);
         window.show();
 
     }
 
-    public static void display(String title,String message1,String variable1,String message2,String variable2) {
-
-
-            Stage window = new Stage();
-            window.initModality(Modality.APPLICATION_MODAL);//force user to close it down first
-            window.setTitle(title);
-            window.setMinWidth(250);
-            Label label = new Label( message1 +": "+ variable1);
-            Label label2 = new Label( message2 +" : "+ variable2);
-            Button btnOK = new Button("OK");
-            btnOK.setOnAction(e -> window.close());
-
-
-            VBox layout = new VBox(30);
-            layout.getChildren().addAll(label, label2,btnOK);
-            layout.setAlignment(Pos.CENTER);
-            Scene scene = new Scene(layout, 250, 200);
-            window.setScene(scene);
-            window.showAndWait();
-
-
-    }
-
-    public static void display(String title,String message1,double variable1,String message2,double variable2) {
+    public static void display(String title, String message1, String variable1, String message2, String variable2) {
 
 
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);//force user to close it down first
         window.setTitle(title);
         window.setMinWidth(250);
-        Label label = new Label( message1 +": "+ variable1);
-        Label label2 = new Label( message2 +" : "+ variable2);
+        Label label = new Label(message1 + ": " + variable1);
+        Label label2 = new Label(message2 + " : " + variable2);
         Button btnOK = new Button("OK");
         btnOK.setOnAction(e -> window.close());
 
 
         VBox layout = new VBox(30);
-        layout.getChildren().addAll(label, label2,btnOK);
+        layout.getChildren().addAll(label, label2, btnOK);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(layout, 250, 200);
+        window.setScene(scene);
+        window.showAndWait();
+
+
+    }
+
+    public static void display(String title, String message1, double variable1, String message2, double variable2) {
+
+
+        Stage window = new Stage();
+        window.initModality(Modality.APPLICATION_MODAL);//force user to close it down first
+        window.setTitle(title);
+        window.setMinWidth(250);
+        Label label = new Label(message1 + ": " + variable1);
+        Label label2 = new Label(message2 + " : " + variable2);
+        Button btnOK = new Button("OK");
+        btnOK.setOnAction(e -> window.close());
+
+
+        VBox layout = new VBox(30);
+        layout.getChildren().addAll(label, label2, btnOK);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 250, 200);
         window.setScene(scene);
@@ -149,8 +152,7 @@ public class ConfirmBox
         // set table
         TableView<Booking> table = new TableView<>();
         table.setItems(list);
-        table.getColumns().addAll(hallNameColumn,hallTypeColumn,dateColumn,startColumn,endColumn);
-
+        table.getColumns().addAll(hallNameColumn, hallTypeColumn, dateColumn, startColumn, endColumn);
 
 
         VBox vbox = new VBox(20);
